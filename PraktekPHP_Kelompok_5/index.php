@@ -25,12 +25,14 @@
             <?php
                 include('conn.php');
 
-                $data_pelanggan = mysqli_query($conn, "SELECT * FROM pelanggan");
+                $nomor = 1;
+
+                $data_pelanggan = mysqli_query($conn, "SELECT * FROM pelanggan ORDER BY id DESC");
 
                 while($pelanggan = mysqli_fetch_array($data_pelanggan)){
             ?>
             <tr>
-                <td class="text-center"><?php echo $pelanggan['id'] ?></td>
+                <td class="text-center"><?php echo $nomor++ ?></td>
                 <td><?php echo $pelanggan['nama'] ?></td>
                 <td><?php echo $pelanggan['jenis_kelamin'] ?></td>
                 <td><?php echo $pelanggan['telpon'] ?></td>

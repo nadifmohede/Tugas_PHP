@@ -1,7 +1,7 @@
 <?php
     $nama = $_POST['nama'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
-    $telepon = $_POST['telpon'];
+    $telpon = $_POST['telpon'];
     $alamat = $_POST['alamat'];
 
     include('conn.php');
