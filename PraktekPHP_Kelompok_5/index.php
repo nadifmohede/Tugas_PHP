@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penjualan</title>
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <br><br>
+        
+        <br>
+        <h3 class="text-center">Tabel Pelanggan</h3>
+
+        <br>
         <a href="create.php" class="btn btn-primary">Tambah Data</a><br><br>
 
         <table cellpadding="10" cellspacing="0" class="table table-striped">
-            <tr>
-                <td width="50px" class="text-center">ID</td>
+            <tr class="font-weight-bold">
+                <td width="50px" class="text-center">No</td>
                 <td width="200px" class="text-center">Nama</td>
                 <td width="200px" class="text-center">Jenis Kelamin</td>
                 <td width="200px" class="text-center">Telepon</td>
@@ -33,13 +34,13 @@
             ?>
             <tr>
                 <td class="text-center"><?php echo $nomor++ ?></td>
-                <td><?php echo $pelanggan['nama'] ?></td>
-                <td><?php echo $pelanggan['jenis_kelamin'] ?></td>
-                <td><?php echo $pelanggan['telpon'] ?></td>
-                <td><?php echo $pelanggan['alamat'] ?></td>
-                <td>
-                    <button class="btn btn-warning">Edit</button>
-                    <button class="btn btn-warning">Delete</button>
+                <td class="text-center"><?php echo $pelanggan['nama'] ?></td>
+                <td class="text-center"><?php echo $pelanggan['jenis_kelamin'] ?></td>
+                <td class="text-center"><?php echo $pelanggan['telpon'] ?></td>
+                <td class="text-center"><?php echo $pelanggan['alamat'] ?></td>
+                <td class="text-center">
+                    <a href="edit.php?id=<?php echo $pelanggan['id']; ?>" class="btn btn-warning">Edit</a>
+                    <a href="delete.php?id=<?php echo $pelanggan['id']; ?>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             <?php
