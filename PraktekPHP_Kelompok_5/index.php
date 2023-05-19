@@ -3,6 +3,9 @@
 <head>
     <title>Penjualan</title>
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,7 +16,8 @@
         <br>
         <a href="create.php" class="btn btn-primary">Tambah Data</a><br><br>
 
-        <table cellpadding="10" cellspacing="0" class="table table-striped">
+        <table id="myTable" cellpadding="10" cellspacing="0" class="table table-striped">
+            <thead>
             <tr class="font-weight-bold">
                 <td width="50px" class="text-center">No</td>
                 <td width="200px" class="text-center">Nama</td>
@@ -22,6 +26,7 @@
                 <td width="200px" class="text-center">Alamat</td>
                 <td width="200px" class="text-center">Aksi</td>
             </tr>
+            </thead>
 
             <?php
                 include('conn.php');
@@ -32,6 +37,8 @@
 
                 while($pelanggan = mysqli_fetch_array($data_pelanggan)){
             ?>
+
+            <tbody>
             <tr>
                 <td class="text-center"><?php echo $nomor++ ?></td>
                 <td class="text-center"><?php echo $pelanggan['nama'] ?></td>
@@ -43,10 +50,16 @@
                     <a href="delete.php?id=<?php echo $pelanggan['id']; ?>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
+            </tbody>
             <?php
                 }
             ?>
         </table>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
 </body>
 </html>
